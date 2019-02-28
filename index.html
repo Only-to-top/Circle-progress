@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Circle progress</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.css">
+  <style>
+    /* круговой индикатор прогресса */
+    .circle {
+      width: 215px;
+      position: relative;
+      text-align: center;
+      margin: 30px auto;
+    }
+    .circle-flex{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .circle strong {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.4em;
+    }
+    .circle span {
+      line-height: 1.4em;
+      font-size: 14px;
+    }
+    /* круговой индикатор прогресса */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Круговой индикатор прогресса -->
+    <div class="row justify-content-center">
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="circle one">
+            <div class="circle-flex">
+              <strong>47<i>%</i></strong>
+              <span>Рост повторных продаж</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="circle two">
+            <div class="circle-flex">
+              <strong>29<i>%</i></strong>
+              <span>Увеличение прибыли <br>компании</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="circle three">
+            <div class="circle-flex">
+              <strong>57<i>%</i></strong>
+              <span>Повышение лояльности <br>клиентов</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="circle four">
+            <div class="circle-flex">
+              <strong>34<i>%</i></strong>
+              <span>Повышение лояльности <br>клиентов</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+     <!-- /Круговой индикатор прогресса -->
+  </div>
+  
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="libs/circle-progress.min.js"></script>
+  <script>
+    $(function(){
+      // Круговой прогресс
+    $('.circle.one').circleProgress({
+        value: 0.47, //значение от 0 до 1
+        size: 215, //диаметр круга
+        fill: '#b64cea',
+        emptyFill: 'rgba(0,0,0,.2)', // цвет дуги
+        thickness: 6, //ширина дуги
+        startAngle: Math.PI + 1.5, //начинать с 0 градусов
+      }).on('circle-animation-progress', function(event, progress) {
+        $(this).find('strong').html( '+' + Math.round(47 * progress) + '%');
+      });
+      $('.circle.two').circleProgress({
+        value: 0.29, //значение от 0 до 1
+        size: 215, //диаметр круга
+        fill: '#b64cea',
+        emptyFill: 'rgba(0,0,0,.2)', // цвет дуги
+        thickness: 6, //ширина дуги
+        startAngle: Math.PI + 1.5, //начинать с 0 градусов
+      }).on('circle-animation-progress', function(event, progress) {
+        $(this).find('strong').html( '+' + Math.round(29 * progress) + '%');
+      });
+      $('.circle.three').circleProgress({
+        value: 0.57, //значение от 0 до 1
+        size: 215, //диаметр круга
+        fill: '#b64cea',
+        emptyFill: 'rgba(0,0,0,.2)', // цвет дуги
+        thickness: 6, //ширина дуги
+        startAngle: Math.PI + 1.5, //начинать с 0 градусов
+      }).on('circle-animation-progress', function(event, progress) {
+        $(this).find('strong').html( '+' + Math.round(57 * progress) + '%');
+      });
+      $('.circle.four').circleProgress({
+        value: 0.34, //значение от 0 до 1
+        size: 215, //диаметр круга
+        fill: '#b64cea',
+        emptyFill: 'rgba(0,0,0,.2)', // цвет дуги
+        thickness: 6, //ширина дуги
+        startAngle: Math.PI + 1.5, //начинать с 0 градусов
+      }).on('circle-animation-progress', function(event, progress) {
+        $(this).find('strong').html( '+' + Math.round(34 * progress) + '%');
+      });// /Круговой прогресс
+    })
+  </script>
+</body>
+</html>
